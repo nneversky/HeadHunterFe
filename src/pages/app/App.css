@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "OpenSansRegular"; 
+  src: url("./assets/fonts/OpenSans-Regular.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
+
+.app {
+  font-family: 'OpenSansRegular', Arial, sans-serif;
+  color: #0F0F10;
+  background-color: #F6F6F7;
+}
+
+.vacancyContainer {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}

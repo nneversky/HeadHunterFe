@@ -1,6 +1,53 @@
 .header {
+  z-index: 100;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 60px;
-  background-color: red;
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 22px 0px rgba(29, 31, 13, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__links {
+  display: flex;
+}
+
+.link__text {
+  width: 130px;
+  color: gray;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.active {
+  color: #000000;
+}
+
+.active::after {
+  content: '';
+  margin-left: 7px;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #4263EB; 
+  border-radius: 50%;
+}
+
+.header__logo {
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 0;
+  margin-left: 1%;
+}
+
+.link__text-image {
+  display: flex;
+  margin-right: 5px;
 }

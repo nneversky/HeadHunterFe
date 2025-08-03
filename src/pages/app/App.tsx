@@ -1,11 +1,20 @@
+import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
 import Header from "../../modules/header";
-import './App.css'
+import SearchBar from "../../modules/searchBar";
+import CardList from "../../modules/cardList";
+import "./App.css";
 
 const App = () => {
   return (
     <section className="app">
-      <Header />
-      App
+      <MantineProvider>
+        <Header />
+        <SearchBar />
+        <div className="vacancyContainer">
+          <CardList />
+        </div>
+      </MantineProvider>
     </section>
   );
 };

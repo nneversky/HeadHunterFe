@@ -1,0 +1,75 @@
+.card {
+  width: 659px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  margin-top: 0;
+  color: #364FC7;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.card__salary-experience {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.salary {
+  font-size: 16px;
+}
+
+.experience {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.card__company {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.card__format {
+  margin-top: 10px;
+}
+
+.format--bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  width: 105px;
+  height: 16px;
+  background-color: #4263EB;
+  padding: 0;
+}
+
+.format--text {
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 16px
+}
+
+.card__city {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.card__buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
