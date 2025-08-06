@@ -77,7 +77,7 @@ export const getItems = createAsyncThunk<ApiResponse, GetItemProps>(
   }
 );
 
-type InitialStateType = {
+export type InitialStateType = {
   items: VacancyItem[];
   pages: number;
   currentPage: number;

@@ -52,6 +52,7 @@ const PillsInput = () => {
               <Pill
                 key={crypto.randomUUID()}
                 onRemove={() => handleRemove(item)}
+                data-testid={`skill-pill-${item}`}
                 withRemoveButton
               >
                 {item}

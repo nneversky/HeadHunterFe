@@ -8,12 +8,13 @@ const Select = () => {
   const dispatch = useDispatch();
 
   return (
-    <section className="select">
+    <section data-testid="select" className="select">
       <SelectUi
         w={296}
         placeholder="Все города"
         leftSection={<IconMapPin size={16} />}
         onChange={(e) => dispatch(switchArea({ area: e }))}
+        itemProp="ssssda"
         data={["Все города", "Москва", "Санкт-Петербург"]}
       />
     </section>
