@@ -1,0 +1,40 @@
+.pillsInput {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 317px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.pillsInput__input {
+  width: 269px;
+  display: flex;
+  gap: 10px;
+}
+
+.input__lable {
+  font-weight: 600;
+  color: #212529;
+}
+
+.pillsInput__group {
+  transform: translateX(-25px);
+  width: 220px;
+  margin-top: 10px;
+}
+
+.pillsInput__button {
+  width: 34px;
+  height: 30px;
+}
+
+.input__button {
+  cursor: pointer;
+  transform: translateY(25px);
+}
+
+.input__button:active {
+transform: translateY(26px)}

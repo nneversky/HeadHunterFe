@@ -25,6 +25,10 @@
   cursor: pointer;
 }
 
+.link__text:active {
+  transform: translateY(1px);
+}
+
 .active {
   color: #000000;
 }

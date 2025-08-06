@@ -1,6 +1,6 @@
 @font-face {
   font-family: "OpenSansRegular"; 
-  src: url("./assets/fonts/OpenSans-Regular.ttf") format("truetype"); 
+  src: url("../../assets/fonts/OpenSans-Regular.ttf") format("truetype"); 
   font-style: normal; 
   font-weight: normal; 
 } 
@@ -9,6 +9,15 @@
   font-family: 'OpenSansRegular', Arial, sans-serif;
   color: #0F0F10;
   background-color: #F6F6F7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
 
 .vacancyContainer {
