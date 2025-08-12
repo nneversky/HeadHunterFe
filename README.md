@@ -25,6 +25,8 @@ Built with modern web technologies, it provides a clean interface for job seeker
 ### 🔹 Header
 Logo + "FE Vacancies" link (just for looks right now 😉)
 
+<img width="1313" height="192" alt="Снимок экрана 2025-08-13 025635" src="https://github.com/user-attachments/assets/1176b90e-0c7f-4974-9428-901ab9a7ff7f" />
+
 ### 🔹 Job Listings Page
 📌 "Frontend Dev Jobs – Find Your Dream Role!"
 
@@ -35,8 +37,6 @@ Logo + "FE Vacancies" link (just for looks right now 😉)
 🧠 Skills Filter – Starts with TypeScript, React, Redux (add/remove more!)
 
 📜 Pagination – 10 jobs per page
-
-<img width="1313" height="192" alt="Снимок экрана 2025-08-13 025635" src="https://github.com/user-attachments/assets/1176b90e-0c7f-4974-9428-901ab9a7ff7f" />
 
 ### 💼 Job Cards Include:
 
