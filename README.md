@@ -1,4 +1,6 @@
-## Frontend Developer Job Board - HeadHunter Clone
+## Frontend Developer Job Board 🚀
+
+Your go-to spot for awesome Frontend jobs! 💻✨
 
 Link on Vercel: https://head-hunter-rn5akrzjw-nneverskys-projects.vercel.app/
 
@@ -7,17 +9,43 @@ Built with modern web technologies, it provides a clean interface for job seeker
 
 <img width="1918" height="863" alt="Снимок экрана 2025-08-13 024222" src="https://github.com/user-attachments/assets/a67fd079-8740-42ad-9482-382d1433337b" />
 
-## Tech Stack
-Framework: React
+## 🔥 Modern Tech Stack:
 
-Build Tool: Vite
+⚡ Vite - Blazing fast builds
 
-State Management: Redux Toolkit
+⚛️ React - Smooth UI magic
 
-Type System: TypeScript
+� TypeScript - No more sneaky bugs!
 
-UI Library: Mantine
+🧩 Redux Toolkit - State management made easy
 
-Testing: Vitest + React Testing Library
+🎨 Mantine - Beautiful components out of the box
+
+## Features 🛠️
+### 🔹 Header
+Logo + "FE Vacancies" link (just for looks right now 😉)
+
+### 🔹 Job Listings Page
+📌 "Frontend Dev Jobs – Find Your Dream Role!"
+🔎 Search – Hunt by job title or company
+🌆 City Filter – All / Moscow / St. Petersburg
+🧠 Skills Filter – Starts with TypeScript, React, Redux (add/remove more!)
+📜 Pagination – 10 jobs per page
+
+### 💼 Job Cards Include:
+✔️ Job Title
+💰 Salary Range
+👔 Required Experience
+🏠 Remote/Office/Hybrid tags
+🏢 Company Name
+📍 Location
+🔗 "View Job" (placeholder for now)
+🚀 "Apply Now" (links straight to hh.ru!)
 
 <img width="435" height="447" alt="Снимок экрана 2025-08-13 024436" src="https://github.com/user-attachments/assets/b21c7866-f064-4a37-8987-52be7988a936" />
+
+## Testing? You Bet! 🧪
+✅ Component rendering
+✅ User interactions
+✅ State management
+✅ API handling
