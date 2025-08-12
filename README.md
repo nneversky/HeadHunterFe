@@ -27,25 +27,41 @@ Logo + "FE Vacancies" link (just for looks right now 😉)
 
 ### 🔹 Job Listings Page
 📌 "Frontend Dev Jobs – Find Your Dream Role!"
+
 🔎 Search – Hunt by job title or company
+
 🌆 City Filter – All / Moscow / St. Petersburg
+
 🧠 Skills Filter – Starts with TypeScript, React, Redux (add/remove more!)
+
 📜 Pagination – 10 jobs per page
 
 ### 💼 Job Cards Include:
+
 ✔️ Job Title
+
 💰 Salary Range
+
 👔 Required Experience
+
 🏠 Remote/Office/Hybrid tags
+
 🏢 Company Name
+
 📍 Location
+
 🔗 "View Job" (placeholder for now)
+
 🚀 "Apply Now" (links straight to hh.ru!)
 
 <img width="435" height="447" alt="Снимок экрана 2025-08-13 024436" src="https://github.com/user-attachments/assets/b21c7866-f064-4a37-8987-52be7988a936" />
 
 ## Testing? You Bet! 🧪
+
 ✅ Component rendering
+
 ✅ User interactions
+
 ✅ State management
+
 ✅ API handling
