@@ -36,6 +36,8 @@ Logo + "FE Vacancies" link (just for looks right now 😉)
 
 📜 Pagination – 10 jobs per page
 
+<img width="1313" height="192" alt="Снимок экрана 2025-08-13 025635" src="https://github.com/user-attachments/assets/1176b90e-0c7f-4974-9428-901ab9a7ff7f" />
+
 ### 💼 Job Cards Include:
 
 ✔️ Job Title
