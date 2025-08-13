@@ -2,20 +2,34 @@ import "./PillsInput.css";
 import { useSelector, useDispatch } from "react-redux";
 import type { KeyboardEvent } from "react";
 import { addSkill, removeSkill } from "../../store/slices/appSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { RootState } from "../../store";
 import { PillsInput as PillsInputUi, Pill, Image } from "@mantine/core";
 import skillButton from "../../assets/image/skillButton.svg";
+import { useSearchParams } from "react-router-dom";
 
 const PillsInput = () => {
   const [text, setText] = useState("");
   const skilsItems = useSelector((state: RootState) => state.app.itemsSkils);
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch(addSkill({ skill: text }));
     setText("");
   };
+
+  useEffect(() => {
+    const newParams = new URLSearchParams(searchParams);
+
+    if (skilsItems.length > 0) {
+      newParams.set("skills", skilsItems.join(" "));
+    } else {
+      newParams.delete("skills");
+    }
+
+    setSearchParams(newParams);
+  }, [skilsItems]);
 
   const handleKey = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) handleClick();

@@ -9,10 +9,26 @@ import {
 } from "../../store/slices/appSlice";
 import { IconSearch } from "@tabler/icons-react";
 import type { RootState } from "../../store";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const SearchBar = () => {
   const bufferText = useSelector((state: RootState) => state.app.bufferText);
+  const searchText = useSelector((state: RootState) => state.app.searchText);
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const newParams = new URLSearchParams(searchParams);
+
+    if (searchText === "") {
+      newParams.delete("search");
+    } else {
+      newParams.set("search", searchText);
+    }
+
+    setSearchParams(newParams);
+  }, [searchText]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") dispatch(cleanUpSearch());
