@@ -1,5 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import { useSelector } from "react-redux";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "@mantine/core/styles.css";
 import Header from "../../modules/header";
 import SearchBar from "../../modules/searchBar";
@@ -7,33 +7,39 @@ import CardList from "../../modules/cardList";
 import Pagination from "../../components/pagination";
 import Select from "../../components/select";
 import PillsInput from "../../components/pillsInput";
-import type { RootState } from "../../store";
+import VacancyPage from "../../components/VacancyPage";
 import "./App.css";
 
 const App = () => {
-  const stateApp = useSelector((state: RootState) => state.app.stateApp);
-  const state = stateApp === "vacancies";
+  const VacanciesPage = () => {
+    return (
+      <>
+        <SearchBar />
+        <div className="vacancyContainer">
+          <div className="sidebar">
+            <PillsInput />
+            <Select />
+          </div>
+          <CardList />
+        </div>
+        <Pagination />
+      </>
+    );
+  };
 
   return (
-    <section className="app">
-      <MantineProvider>
-        <Header />
-
-        {state && (
-          <>
-            <SearchBar />
-            <div className="vacancyContainer">
-              <div className="sidebar">
-                <PillsInput />
-                <Select />
-              </div>
-              <CardList />
-            </div>
-            <Pagination />
-          </>
-        )}
-      </MantineProvider>
-    </section>
+    <BrowserRouter>
+      <section className="app">
+        <MantineProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Navigate to="/vacancies" />} />
+            <Route index path="/vacancies" element={<VacanciesPage />} />
+            <Route path="/vacancies/:vacancyId" element={<VacancyPage />} />
+          </Routes>
+        </MantineProvider>
+      </section>
+    </BrowserRouter>
   );
 };
 
