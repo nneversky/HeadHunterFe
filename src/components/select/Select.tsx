@@ -10,6 +10,7 @@ import "./Select.css";
 const Select = () => {
   const currentArea = useSelector((state: RootState) => state.app.currentArea);
   const searchText = useSelector((state: RootState) => state.app.searchText);
+  const skilsItems = useSelector((state: RootState) => state.app.itemsSkils);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -23,6 +24,12 @@ const Select = () => {
         newParams.delete("search");
       }
 
+      if (skilsItems.length > 0) {
+        newParams.set("skills", skilsItems.join(" "));
+      } else {
+        newParams.delete("skills");
+      }
+
       if (currentArea === 1) {
         newParams.set("location", "Москва");
       } else if (currentArea === 2) {
@@ -31,7 +38,7 @@ const Select = () => {
 
       setSearchParams(newParams);
     }
-  }, [currentArea, searchText, searchParams, setSearchParams]);
+  }, [currentArea, searchText, searchParams, setSearchParams, skilsItems]);
 
   const handleChange = (e: string | null) => {
     if (e) {
