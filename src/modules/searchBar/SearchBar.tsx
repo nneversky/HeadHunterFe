@@ -19,16 +19,12 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const newParams = new URLSearchParams(searchParams);
-
-    if (searchText === "") {
-      newParams.delete("search");
-    } else {
+    if (searchText) {
+      const newParams = new URLSearchParams(searchParams);
       newParams.set("search", searchText);
+      setSearchParams(newParams);
     }
-
-    setSearchParams(newParams);
-  }, [searchText]);
+  }, [searchText, searchParams, setSearchParams]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") dispatch(cleanUpSearch());

@@ -11,6 +11,7 @@ import { useSearchParams } from "react-router-dom";
 const PillsInput = () => {
   const [text, setText] = useState("");
   const skilsItems = useSelector((state: RootState) => state.app.itemsSkils);
+  const searchText = useSelector((state: RootState) => state.app.searchText);
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
 
@@ -21,6 +22,11 @@ const PillsInput = () => {
 
   useEffect(() => {
     const newParams = new URLSearchParams(searchParams);
+    if (searchText) {
+      newParams.set("search", searchText);
+    } else {
+      newParams.delete("search");
+    }
 
     if (skilsItems.length > 0) {
       newParams.set("skills", skilsItems.join(" "));
@@ -29,7 +35,7 @@ const PillsInput = () => {
     }
 
     setSearchParams(newParams);
-  }, [skilsItems]);
+  }, [skilsItems, searchParams, setSearchParams, searchText]);
 
   const handleKey = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) handleClick();

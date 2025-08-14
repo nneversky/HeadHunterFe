@@ -30,7 +30,7 @@ const Header = () => {
         alt="Logo"
       />
       <div className="header__links link">
-        <Link to={"/vacancies"}>
+        <Link to={"/"}>
           <span
             onClick={() => handleClick("vacancies")}
             className={`link__text ${state === "vacancies" ? "active" : null}`}
