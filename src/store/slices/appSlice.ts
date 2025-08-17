@@ -1,7 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import ky from "ky";
-import type { CurrencyCode } from "../../service/currencyTypes";
+import type { CurrencyCode } from "../../service/types";
 import { config } from "../../service/config";
+import { DictArea } from "../../service/types";
+
+const getInitialArea = (): number | null => {
+  const pathname = window.location.pathname;
+  const lastSegment = pathname.split("/").filter(Boolean).pop();
+  if (!lastSegment || !(lastSegment in DictArea)) {
+    return 1;
+  }
+  return DictArea[lastSegment];
+};
+
+const getInitialSearchText = () => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("search") || "";
+};
+
+const getInitialSkills = () => {
+  const params = new URLSearchParams(window.location.search);
+  const skills = params.get("skills");
+  return skills ? skills.split(" ") : ["TypeScript", "React", "Redux"];
+};
 
 type GetItemProps = {
   page: number;
@@ -99,11 +120,11 @@ const appSlice = createSlice({
     items: [],
     pages: 0,
     currentPage: 1,
-    currentArea: null,
-    searchText: "",
-    bufferText: "",
+    currentArea: getInitialArea(),
+    searchText: getInitialSearchText(),
+    bufferText: getInitialSearchText(),
     stateApp: "vacancies",
-    itemsSkils: ["TypeScript", "React", "Redux"],
+    itemsSkils: getInitialSkills(),
   } as InitialStateType,
   reducers: {
     addSkill(state, action) {
@@ -111,6 +132,11 @@ const appSlice = createSlice({
       if (skill.trim().length === 0) return;
       if (!state.itemsSkils.includes(skill)) state.itemsSkils.push(skill);
     },
+    changeSkills(state, action) {
+      const { skills } = action.payload;
+      state.itemsSkils = skills;
+    },
+
     removeSkill(state, action) {
       const { skill } = action.payload;
       const newItemsSkils = state.itemsSkils.filter((item) => {
@@ -120,17 +146,7 @@ const appSlice = createSlice({
     },
     switchArea(state, action) {
       const { area } = action.payload;
-      switch (area) {
-        case "Все города":
-          state.currentArea = null;
-          break;
-        case "Москва":
-          state.currentArea = 1;
-          break;
-        case "Санкт-Петербург":
-          state.currentArea = 2;
-          break;
-      }
+      state.currentArea = DictArea[area];
       state.currentPage = 1;
     },
     switchPage(state, action) {
@@ -176,5 +192,6 @@ export const {
   addSkill,
   removeSkill,
   cleanUpSearch,
+  changeSkills,
 } = appSlice.actions;
 export default appSlice.reducer;

@@ -4,7 +4,7 @@ import type {
   VacancyItem,
 } from "../../store/slices/appSlice";
 import "./SampleCard.css";
-import { DictCurrency } from "../../service/currencyTypes";
+import { DictCurrency } from "../../service/types";
 
 const GetSalary = ({ salary }: { salary: Salary | null }) => {
   if (!salary) return null;

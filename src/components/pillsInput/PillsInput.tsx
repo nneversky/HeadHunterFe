@@ -1,7 +1,10 @@
 import "./PillsInput.css";
 import { useSelector, useDispatch } from "react-redux";
 import type { KeyboardEvent } from "react";
-import { addSkill, removeSkill } from "../../store/slices/appSlice";
+import {
+  addSkill,
+  removeSkill,
+} from "../../store/slices/appSlice";
 import { useState, useEffect } from "react";
 import type { RootState } from "../../store";
 import { PillsInput as PillsInputUi, Pill, Image } from "@mantine/core";
@@ -14,6 +17,7 @@ const PillsInput = () => {
   const searchText = useSelector((state: RootState) => state.app.searchText);
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const newParams = new URLSearchParams(searchParams);
 
   const handleClick = () => {
     dispatch(addSkill({ skill: text }));
@@ -21,7 +25,6 @@ const PillsInput = () => {
   };
 
   useEffect(() => {
-    const newParams = new URLSearchParams(searchParams);
     if (searchText) {
       newParams.set("search", searchText);
     } else {
