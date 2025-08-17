@@ -1,6 +1,6 @@
 import "./VacancyPage.css";
 import { useLocation } from "react-router-dom";
-import SampleCard from "../SampleCard";
+import SampleCard from "../sampleCard";
 import { Button } from "@mantine/core";
 
 type PropsTypeObj = {

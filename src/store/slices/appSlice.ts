@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import ky from "ky";
+import type { CurrencyCode } from "../../service/currencyTypes";
+import { config } from "../../service/config";
 
 type GetItemProps = {
   page: number;
@@ -10,7 +12,7 @@ type GetItemProps = {
 export interface Salary {
   from: number | null;
   to: number | null;
-  currency: string;
+  currency: CurrencyCode;
   gross: boolean;
 }
 
@@ -60,13 +62,14 @@ interface ApiResponse {
 export const getItems = createAsyncThunk<ApiResponse, GetItemProps>(
   "app/getItems",
   async ({ page = 0, text = "", area = null }: GetItemProps) => {
+    const { industry, professional_role, per_page } = config.defaultParams;
     const data = await ky
-      .get("https://api.hh.ru/vacancies", {
+      .get(config.baseUrl, {
         searchParams: {
-          industry: 7,
-          professional_role: 96,
+          industry,
+          professional_role,
           page,
-          per_page: 5,
+          per_page,
           text,
           ...(area && { area }),
         },

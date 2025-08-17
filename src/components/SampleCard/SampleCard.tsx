@@ -3,27 +3,13 @@ import type {
   WorkFormat,
   VacancyItem,
 } from "../../store/slices/appSlice";
-import './SampleCard.css'
+import "./SampleCard.css";
+import { DictCurrency } from "../../service/currencyTypes";
 
 const GetSalary = ({ salary }: { salary: Salary | null }) => {
   if (!salary) return null;
   const { from, to, currency } = salary;
-  let cur = "₽";
-
-  switch (currency) {
-    case "USD":
-      cur = "$";
-      break;
-    case "EUR":
-      cur = "€";
-      break;
-    case "KZT":
-      cur = "₸";
-      break;
-    default:
-      cur = currency;
-      break;
-  }
+  const cur = DictCurrency[currency] ?? currency;
 
   if (!from && to)
     return (

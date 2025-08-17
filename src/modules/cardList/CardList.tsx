@@ -4,7 +4,7 @@ import { Image } from "@mantine/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "../../store/slices/appSlice";
 import Card from "../../components/card";
-import nothingImg from "../../assets/image/nothing-found.png";
+import sadCatImg from "../../assets/image/sad-cat.gif";
 import type { RootState, AppDispatch } from "../../store";
 
 const CardList = () => {
@@ -42,7 +42,7 @@ const CardList = () => {
       <section className="cardList">
         {!itemsState && statusLoad === "resolved" && (
           <div className="nothing">
-            <Image src={nothingImg} />
+            <Image src={sadCatImg} />
           </div>
         )}
 

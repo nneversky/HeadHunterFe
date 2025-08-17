@@ -1,7 +1,7 @@
 import "./Card.css";
 import { Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import SampleCard from "../SampleCard";
+import SampleCard from "../sampleCard";
 import type { VacancyItem } from "../../store/slices/appSlice";
 
 const Card = (data: VacancyItem) => {

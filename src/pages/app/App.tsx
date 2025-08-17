@@ -7,7 +7,7 @@ import CardList from "../../modules/cardList";
 import Pagination from "../../components/pagination";
 import Select from "../../components/select";
 import PillsInput from "../../components/pillsInput";
-import VacancyPage from "../../components/VacancyPage";
+import VacancyPage from "../../components/vacancyPage";
 import "./App.css";
 
 const App = () => {
