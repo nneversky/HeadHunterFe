@@ -1,5 +1,4 @@
 import { MantineProvider } from "@mantine/core";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "@mantine/core/styles.css";
 import Header from "../../modules/header";
 import SearchBar from "../../modules/searchBar";
@@ -10,10 +9,28 @@ import VacancyPage from "../../components/vacancyPage";
 import Tabs from "../../components/tabs";
 import { useDispatch, useSelector } from "react-redux";
 import { switchArea } from "../../store/slices/appSlice";
-import { useLocation } from "react-router-dom";
+import {
+  useLocation,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Navigate,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
 import "./App.css";
 import { useEffect } from "react";
 import type { RootState } from "../../store";
+import ErrorPage from "../../components/errorPage";
+
+const Layout = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
+};
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,38 +60,44 @@ const App = () => {
     );
   };
 
-  return (
-    <BrowserRouter>
-      <section className="app">
-        <MantineProvider>
-          <Header />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Navigate
-                  to={`/vacancies/${currentArea === null ? "all-region" : currentArea === 1 ? "moscow" : "petersburg"}`}
-                  replace
-                />
-              }
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" errorElement={<ErrorPage />} element={<Layout />}>
+        <Route
+          path="/"
+          index
+          element={
+            <Navigate
+              to={`/vacancies/${currentArea === null ? "all-region" : currentArea === 1 ? "moscow" : "petersburg"}`}
+              replace
             />
+          }
+        />
 
-            <Route path="vacancies">
-              <Route path=":vacancyId" element={<VacancyPage />} />
-              <Route path="moscow" element={<VacanciesPage area="moscow" />} />
-              <Route
-                path="petersburg"
-                element={<VacanciesPage area="petersburg" />}
-              />
-              <Route
-                path="all-region"
-                element={<VacanciesPage area="all-region" />}
-              />
-            </Route>
-          </Routes>
-        </MantineProvider>
-      </section>
-    </BrowserRouter>
+        <Route path="about" errorElement={<ErrorPage />}/>
+
+        <Route path="vacancies" errorElement={<ErrorPage />}>
+          <Route path=":vacancyId" element={<VacancyPage />} />
+          <Route path="moscow" element={<VacanciesPage area="moscow" />} />
+          <Route
+            path="petersburg"
+            element={<VacanciesPage area="petersburg" />}
+          />
+          <Route
+            path="all-region"
+            element={<VacanciesPage area="all-region" />}
+          />
+        </Route>
+      </Route>
+    )
+  );
+
+  return (
+    <section className="app">
+      <MantineProvider>
+        <RouterProvider router={router} />
+      </MantineProvider>
+    </section>
   );
 };
 

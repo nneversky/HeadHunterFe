@@ -42,7 +42,7 @@ const CardList = () => {
       <section className="cardList">
         {!itemsState && statusLoad === "resolved" && (
           <div className="nothing">
-            <Image src={sadCatImg} />
+              <Image style={{ borderRadius: "12px" }} src={sadCatImg} />
           </div>
         )}
 

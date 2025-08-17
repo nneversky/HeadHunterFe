@@ -1,0 +1,37 @@
+.errorPage {
+  transform: translateY(130px);
+  width: 707px;
+  height: 556px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+}
+
+.errorPage__header {
+  width: 643px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  width: 508px;
+}
+
+.text__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 34px;
+  letter-spacing: 0;
+  line-height: 130%;
+  margin-bottom: 15px;
+}
+
+.errorPage__image {
+  transform: translateY(35px);
+  margin: 0 auto;
+  width: 640px;
+}
