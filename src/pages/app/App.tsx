@@ -22,6 +22,7 @@ import "./App.css";
 import { useEffect } from "react";
 import type { RootState } from "../../store";
 import ErrorPage from "../../components/errorPage";
+import AboutPage from "../../components/aboutPage";
 
 const Layout = () => {
   return (
@@ -74,7 +75,11 @@ const App = () => {
           }
         />
 
-        <Route path="about" errorElement={<ErrorPage />}/>
+        <Route
+          path="about"
+          element={<AboutPage />}
+          errorElement={<ErrorPage />}
+        />
 
         <Route path="vacancies" errorElement={<ErrorPage />}>
           <Route path=":vacancyId" element={<VacancyPage />} />

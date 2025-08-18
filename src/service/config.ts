@@ -7,6 +7,8 @@ export const config: ApiConfig = {
   },
 };
 
+export const linkTg = "https://t.me/nneversky";
+
 interface ApiConfig {
   baseUrl: string;
   defaultParams: {

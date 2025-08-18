@@ -1,0 +1,19 @@
+.aboutPage {
+  transform: translateY(130px);
+  width: 658px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding-bottom: 25PX;
+}
+
+.aboutPage__description {
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  margin: 0 auto;
+  width: 610px;
+}
+
+.aboutPage__buttons {
+  margin-top: 15px;
+}
