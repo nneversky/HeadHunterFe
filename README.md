@@ -2,7 +2,7 @@
 
 Your go-to spot for awesome Frontend jobs! 💻✨
 
-### 📌 Link on Vercel: https://head-hunter-auyazcbdn-nneverskys-projects.vercel.app
+### 📌 Link on Vercel: https://head-hunter-nzzjp8f86-nneverskys-projects.vercel.app
 
 This project is a HeadHunter clone specifically tailored for Frontend Developer job listings. 
 Built with modern web technologies, it provides a clean interface for job seekers to browse frontend development opportunities.
