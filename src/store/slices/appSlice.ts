@@ -4,6 +4,13 @@ import type { CurrencyCode } from "../../service/types";
 import { config } from "../../service/config";
 import { DictArea } from "../../service/types";
 
+const getStateAppPage = (): string => {
+  const pathname = window.location.pathname;
+  if (pathname.replace("/", "") === "about") return "about";
+
+  return "vacancies";
+};
+
 const getInitialArea = (): number | null => {
   const pathname = window.location.pathname;
   const lastSegment = pathname.split("/").filter(Boolean).pop();
@@ -123,7 +130,7 @@ const appSlice = createSlice({
     currentArea: getInitialArea(),
     searchText: getInitialSearchText(),
     bufferText: getInitialSearchText(),
-    stateApp: "vacancies",
+    stateApp: getStateAppPage(),
     itemsSkils: getInitialSkills(),
   } as InitialStateType,
   reducers: {

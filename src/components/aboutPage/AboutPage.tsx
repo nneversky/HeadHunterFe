@@ -9,6 +9,7 @@ const AboutPage = () => {
         <h2>Я артем, Артем Кузин</h2>
         <span>Пишу код, Пишу на React/TypeScript/RTK.</span>
         <div className="aboutPage__buttons">
+          <span className="buttons__text">Мой</span>
           <Button component="a" target="_blank" href={linkTg}>
             TG
           </Button>
