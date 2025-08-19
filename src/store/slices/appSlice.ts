@@ -78,6 +78,7 @@ export interface VacancyItem {
   experience: Experience;
   work_format: WorkFormat[];
   salary: Salary | null;
+  alternate_url?: string;
 }
 
 interface ApiResponse {

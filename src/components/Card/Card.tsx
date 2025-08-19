@@ -21,6 +21,10 @@ const Card = (data: VacancyItem) => {
           Смотреть вакансию
         </Button>
         <Button
+          component="a"
+          href={data.alternate_url}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{ fontWeight: "400" }}
           variant="light"
           color="rgba(0, 0, 0, 1)"
