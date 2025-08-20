@@ -1,16 +1,9 @@
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import Header from "../../modules/header";
-import SearchBar from "../../modules/searchBar";
-import CardList from "../../modules/cardList";
-import Pagination from "../../components/pagination";
-import PillsInput from "../../components/pillsInput";
 import VacancyPage from "../../components/vacancyPage";
-import Tabs from "../../components/tabs";
-import { useDispatch, useSelector } from "react-redux";
-import { switchArea } from "../../store/slices/appSlice";
+import { useSelector } from "react-redux";
 import {
-  useLocation,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
@@ -19,10 +12,10 @@ import {
   Outlet,
 } from "react-router-dom";
 import "./App.css";
-import { useEffect } from "react";
 import type { RootState } from "../../store";
 import ErrorPage from "../../components/errorPage";
 import AboutPage from "../../components/aboutPage";
+import VacanciesPage from "../../modules/vacanciesPage";
 
 const Layout = () => {
   return (
@@ -34,32 +27,7 @@ const Layout = () => {
 };
 
 const App = () => {
-  const dispatch = useDispatch();
   const currentArea = useSelector((state: RootState) => state.app.currentArea);
-
-  const VacanciesPage = ({ area }: { area: string }) => {
-    const location = useLocation();
-
-    useEffect(() => {
-      dispatch(switchArea({ area: location.pathname.split("/").at(-1) }));
-    }, [area, dispatch, currentArea]);
-
-    return (
-      <>
-        <SearchBar />
-        <div className="vacancyContainer">
-          <div className="sidebar">
-            <PillsInput />
-          </div>
-          <div>
-            <Tabs />
-            <CardList />
-          </div>
-        </div>
-        <Pagination />
-      </>
-    );
-  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
